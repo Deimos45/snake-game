@@ -16,6 +16,16 @@ void inicializarTabuleiro(char tabuleiro[LINHAS][COLUNAS]) {
         }
     }
 }
+void gerarFruta(char tabuleiro[LINHAS][COLUNAS]) {
+    int x, y;
+    do {
+        // Gera posições aleatórias dentro dos limites válidos
+        x = 1 + rand() % (LINHAS - 2);
+        y = 1 + rand() % (COLUNAS - 2);
+    } while(tabuleiro[x][y] != ' '); // Garante posição vazia
+    
+    tabuleiro[x][y] = 'F'; // Coloca a fruta
+}
 
 void exibirTabuleiro(char tabuleiro[LINHAS][COLUNAS]) {
     system("clear"); // limpa o terminal (use "cls" no Windows)
